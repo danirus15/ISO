@@ -5,9 +5,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./App.css"
 // Import images
-import heroImage1 from "./assets/images/hero/1.png";
+import heroImage1 from "./assets/images/hero/hero1.jpg";
 import heroImage2 from "./assets/images/hero/2.png";
 import heroImage3 from "./assets/images/hero/3.png";
+
 
 const heroImages = [heroImage1, heroImage2, heroImage3];
 
@@ -23,294 +24,215 @@ const App = () => {
     fade: true, // Optional: for fade transition
   };
 
+  function CardArticle(props) {
+    return (
+      <div className="w-1/3 transition text-center hover:bg-slate-100 pb-3">
+        <img src={props.image} alt="" />
+        <h3 className="p-2 text-blue-950 font-medium text-xl">{props.title}</h3>
+        <div className="mb-4 px-2 text-left">{props.shortDesc}</div>
+        <a href="Learn more" className="btn-arrow text-color text-blue-950 font-medium">Learn more</a>
+      </div>
+    );
+  }
+
+  function CardServices(props) {
+    return (
+      <div className="w-1/3 transition text-center px-3 py-5" style={{backgroundColor:"rgba(30, 86, 142, 0.47)"}}>
+        <div className="flex justify-center pt-10 pb-4">
+          <img src={props.image} alt="" className="w-1/5"/>
+        </div>
+        <h3 className="p-2 font-medium text-xl pb-4">{props.title}</h3>
+        <div className="mb-4 px-2 text-left">{props.shortDesc}</div>
+        
+      </div>
+    );
+  }
+
+  function CardFaq(props) {
+    return (
+      <div class="flex flex-row text-xl py-8 border-t">
+          <div class="basis-5/6 font-title font-medium">{props.title}</div>
+          <div class="basis-1/6 font-medium text-xl text-right">+</div>
+      </div>
+    );
+  }
+
   return (
     <>
-      <nav className="bg-navy p-4 text-white">
-        <div className="container mx-auto flex justify-between items-center">
-          <a href="#" className="text-xl font-bold">
-            EnergyCorp
-          </a>
-          <ul className="flex space-x-6">
-            <li>
-              <a href="#" className="hover:underline">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      
 
       <header className="relative text-white overflow-hidden">
-        <Slider {...settings} className="w-full h-[50vh]">
-          {heroImages.map((image, index) => (
-            <div
-              key={index}
-              className="w-full h-full flex items-center justify-center"
-            >
-              <img
-                src={image}
-                alt={`Hero ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </Slider>
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Leading the Future of Energy
-            </h1>
-            <p className="text-lg md:text-xl mb-8">
-              Innovative solutions for a sustainable tomorrow.
-            </p>
-            <a
-              href="#"
-              className="bg-white text-navy py-2 px-6 rounded-lg font-semibold hover:bg-gray-200"
-            >
-              Get Started
-            </a>
-          </div>
-          <div className="absolute bottom-0 left-0 w-full bg-navy text-white py-2 overflow-hidden opacity-75">
-            <div className="whitespace-nowrap animate-marquee backdrop-blur-sm">
-              <p className="inline-block px-4">
-                Breaking News: New energy solutions unveiled! | Breaking News:
-                Major renewable energy breakthrough! | Breaking News:
-                Industry-leading innovations coming soon!
-              </p>
+        <img 
+            src={heroImage1}
+        />
+        <div className="text-hero bg-[#003366]">
+          <div className="container mx-auto flex justify-between items-center p-10">
+            <div className="flex justify-between">
+              <div className="w-1/2">
+                <h1 className="font-title text-5xl">Where Innovation Meets Energy Excellence</h1>
+              </div>
+              <div  className="w-1/2">
+                <div>Penton is more than a service provider; we're your trusted energy partner. With our expertise, reliability, and personalized approach, we're committed to helping you achieve your energy objectives efficiently and effectively. Partner with us and unlock your full potential in energy.
+                </div>
+                <div className="pt-10 pb-4">
+                  <a href="#" className="transition border-2 border-yellow-400 bg-yellow-400 text-black py-4 px-6 w-[20%] text-center rounded-lg font-semibold hover:bg-yellow-500 mr-3">Get Started</a>
+                  <a href="#" className="transition border-2 border-lime-500 text-white py-4 px-6 w-[20%] text-center rounded-lg font-semibold hover:border-lime-300">Learn more</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </header>
+      <div className="container mx-auto flex justify-between items-center p-10">
+        <section>
+          <div className="w-3/4">
+            <div className="text-md text-orange-500 text-xl font-medium">Expertise</div>
+            <h2 className="text-4xl text-blue-950 font-medium py-3 leading-snug">Comprehensive Consulting Services for Energy Projects</h2>
+            <div>We provide a range of services to support energy projects, including architectural, structural, and mechanical drawings for gas stations and filling plants. We also offer energy regulatory compliance services, environmental impact assessments, and quotations for general engineering works.</div>
+          </div>
+          <div className="flex justify-between my-10 gap-10 mb-16">
+              <CardArticle 
+                image="/src/assets/images/cards/card-1.png"
+                title="Architectural, Structural & Mechanical Drawings"
+                shortDesc="We conduct thorough environmental impact assessments and audits (EIA/EA) for energy projects in the oil and gas industry, as well as general projects."
+              />
+               <CardArticle 
+                 image="/src/assets/images/cards/card-2.png"
+                title="Architectural, Structural & Mechanical Drawings"
+                shortDesc="We conduct thorough environmental impact assessments and audits (EIA/EA) for energy projects in the oil and gas industry, as well as general projects."
+              />
+               <CardArticle 
+                 image="/src/assets/images/cards/card-3.png"
+                title="Architectural, Structural & Mechanical Drawings"
+                shortDesc="We conduct thorough environmental impact assessments and audits (EIA/EA) for energy projects in the oil and gas industry, as well as general projects."
+              />
+          </div>
+          <a href="#" className="transition border-2 border-yellow-400 bg-yellow-400 text-black py-3 px-6 w-[20%] text-center rounded-lg font-semibold hover:bg-yellow-500 mr-3">See All</a>
+        </section>
+      </div>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Real-Time Data Insights
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3">Insight 1</h3>
-                <p className="text-gray-700 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  tincidunt, nunc vel laoreet scelerisque, quam velit euismod
-                  risus.
-                </p>
-                <a href="#" className="text-navy font-semibold hover:underline">
-                  Learn More
-                </a>
+      <section className="bg-[#003366] text-white">
+        <div className="container mx-auto items-center p-10">
+            <div className=" justify-center">
+              <h2 className="text-4xl  px-64 text-center font-normal ">Streamline your operations with our Technical Audits and Compliance Services</h2>
+            </div>
+            <div className="flex justify-between my-10 gap-10 mb-16">
+              <CardServices 
+                image="/src/assets/images/cards/service-1.png"
+                title="Ensure regulatory compliance with our Licenses and Permits Acquisition"
+                shortDesc="Our dedicated team of experienced experts is committed to working closely with you to develop a comprehensive and effective Emergency Response Plan that is tailored to your specific needs and requirements."
+              />
+               <CardServices 
+                image="/src/assets/images/cards/service-1.png"
+                title="Mitigate environmental risks with our Environmental Impact Assessments and Audits"
+                shortDesc="We specialize in providing comprehensive EIA/EA (Environmental Impact Assessment/Environmental Assessment) services for various energy and oil & gas projects, including but not limited to feasibility studies, impact mitigation strategies, stakeholder engagement, and regulatory compliance assessments."
+              />
+               <CardServices 
+                image="/src/assets/images/cards/service-1.png"
+                title="Get accurate quotations for your general engineering and energy works"
+                shortDesc="Our dedicated team of experienced professionals is committed to providing you with a range of competitive quotations that are customized to perfectly meet your specific needs and requirements."
+              />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="container mx-auto items-center p-10">
+          <div className="container mx-auto  justify-between items-center p-10">
+            <div className="flex justify-between">
+              <div className="w-1/2">
+                <h2 className="text-4xl text-blue-950 font-normal mr-6">Providing top-quality consulting services for the oil and gas sector.</h2>
+              </div>
+              <div  className="w-1/2">
+                <div>Our company is dedicated to delivering expert solutions in architectural, structural, and mechanical drawings for oil and gas projects. We also specialize in energy regulatory compliance, environmental impact assessments, and offering quotations for general works. With a focus on excellence and customer satisfaction, we are committed to providing the highest level of service in the industry.
+                </div>
               </div>
             </div>
-
-            {/* Card 2 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3">Insight 2</h3>
-                <p className="text-gray-700 mb-4">
-                  Sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <a href="#" className="text-navy font-semibold hover:underline">
-                  Learn More
-                </a>
+              <div className="w-full my-10">
+                <img src="/src/assets/images/banner/section-provide.png" alt="" />
               </div>
-            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Card 3 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3">Insight 3</h3>
-                <p className="text-gray-700 mb-4">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                  occaecat cupidatat non proident.
-                </p>
-                <a href="#" className="text-navy font-semibold hover:underline">
-                  Learn More
-                </a>
+      <section className="bg-[url('/src/assets/images/banner/bg-consulting.png')] py-10">
+        <div className="container mx-auto items-center text-center p-10 text-white">
+            <h2 className="font-medium text-3xl">Expert Consulting Services for You</h2>
+            <p className="pt-4 pb-10">Contact us today for professional consultations and competitive quotes.</p>
+            <a href="#" className="transition border-2 border-yellow-400 bg-yellow-400 text-black py-4 px-6 w-[20%] text-center rounded-lg font-semibold hover:bg-yellow-500 mr-3">Contact Us</a>
+        </div>
+      </section>
+
+      <section>
+        <div className="container mx-auto items-center p-10">
+          <div className="container mx-auto  justify-between items-center p-10">
+            <div className="flex justify-between">
+              <div className="w-1/2 mr-10">
+                <div className="text-3xl text-blue-950 font-normal mr-8">Common</div>
+                <div className="pt-4 pb-10">Find answers to frequently asked questions about our consulting services in the oil and gas industry, regulatory compliance, and environmental assessments.</div>
+                <a href="#" className="transition border-2 border-yellow-400 bg-yellow-400 text-black py-4 px-6 w-[20%] text-center rounded-lg font-semibold hover:bg-yellow-500 mr-3">Contact Us</a>
+              </div>
+              <div  className="w-1/2">
+                <div className="text-3xl text-blue-950 font-normal mb-4">Frequent Asked Questions</div>
+
+                <CardFaq title="What is oil and gas consulting?"/>
+                <CardFaq title="What is EIA/EA?"/>
+                <CardFaq title="How can we help?"/>
+                <CardFaq title="What other services do you offer?"/>
+                <CardFaq title="Have more questions?"/>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col lg:flex-row bg-navy items-center py-16 px-4 h-[55vh]">
-        {/* Text and Button */}
-        <div className="lg:w-1/2 lg:pr-8 mb-8 flex flex-col gap-4 lg:mb-0 text-white">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Empower Your Business with Our Solutions
-          </h2>
-          <p className="text-lg mb-6">
-            Discover innovative tools and strategies designed to elevate your
-            business performance. Our solutions are tailored to meet your unique
-            needs and help you achieve your goals effectively.
-          </p>
-          <a
-            href="#"
-            className="bg-blue-500 text-white py-5 px-6 w-[20%] text-center rounded-lg font-semibold hover:bg-blue-600"
-          >
-            Learn More
-          </a>
-        </div>
-        {/* Image */}
-        <div className="lg:w-1/2">
-          <img
-            src={heroImage2}
-            alt="Business Solutions"
-            className="w-full h-[50vh] object-cover rounded-lg shadow-lg"
-          />
-        </div>
-          </section>
-          
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Real-Time Data Insights
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img
-                src="https://via.placeholder.com/400x250"
-                alt="Insight 1"
-                className="w-full h-32 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Insight 1</h3>
-                <p className="text-gray-600 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                  tincidunt, nunc vel laoreet scelerisque, quam velit euismod
-                  risus.
-                </p>
-                <a href="#" className="text-navy font-semibold hover:underline">
-                  Learn More
-                </a>
+      <section className="mb-6">
+        <div className="container mx-auto items-center p-10 bg-[#003366] text-white rounded-lg">
+          <div className="flex flex-row justify-between">
+            <div className="basis-1/2 p-10 px-20">
+              <div className="font-title text-2xl font-bold">Contact Information</div>
+              <div>Let’s have a chat</div>
+              <div className="pt-6 flex flex-row">
+                <div>
+                  <img className="mr-3" src="/src/assets/images/icons/bxs_phone-call.png" alt="" style={{height:20}}/>
+                </div><div>+254 768 794629</div>
+              </div>
+              <div className="pt-2 flex flex-row">
+                <div>
+                  <img className="mr-3" src="/src/assets/images/icons/ic_sharp-email.png" alt="" style={{height:20}}/>
+                </div><div>info@pentonenergy.com</div>
+              </div>
+              <div className="pt-2 flex flex-row">
+                <div>
+                  <img className="mr-3" src="/src/assets/images/icons/carbon_location-filled.png" alt="" style={{height:20}}/>
+                </div><div>Ruiru, Kenya</div>
+              </div>
+
+              <div className="mt-6 flex flex-row">
+                <a href="#" className="mr-5" > <img src="/src/assets/images/icons/icon-sosmed.png" alt="" style={{height:30}}/></a>
+                <a href="#" className="mr-5" > <img src="/src/assets/images/icons/icon-sosmed.png" alt="" style={{height:30}}/></a>
+                <a href="#" className="mr-5" > <img src="/src/assets/images/icons/icon-sosmed.png" alt="" style={{height:30}}/></a>
               </div>
             </div>
-
-            {/* Card 2 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img
-                src="https://via.placeholder.com/400x250"
-                alt="Insight 2"
-                className="w-full h-32 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Insight 2</h3>
-                <p className="text-gray-600 mb-4">
-                  Sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <a href="#" className="text-navy font-semibold hover:underline">
-                  Learn More
-                </a>
+            <div className="basis-1/2 p-6">
+              <div className="font-title text-5xl font-medium mb-3">
+                Get in <span className="text-yellow-400">Touch</span>
               </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-              <img
-                src="https://via.placeholder.com/400x250"
-                alt="Insight 3"
-                className="w-full h-32 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Insight 3</h3>
-                <p className="text-gray-600 mb-4">
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                  occaecat cupidatat non proident.
-                </p>
-                <a href="#" className="text-navy font-semibold hover:underline">
-                  Learn More
-                </a>
-              </div>
+              <div>We'd love to hear from you! Whether you have a question about our services, need assistance, or you're in the neighborhood and want to check in, feel free to reach out.</div>
+              <form action="" className="mt-6 pr-10">
+                <input type="text" placeholder="Name" className="bg-transparent p-3 w-full border rounded mt-5"/>
+                <input type="text" placeholder="email" className="bg-transparent p-3 w-full border rounded mt-5"/>
+                <input type="text" placeholder="Phone number" className="bg-transparent p-3 w-full border rounded mt-5"/>
+                <select name="" id=""  className="bg-transparent p-3 w-full border rounded mt-5">
+                  <option value="">Select service</option>
+                </select>
+                <input type="button" value="SEND" className="bg-yellow-500 text-black font-bold p-3 w-full  rounded mt-5 hover:bg-yellow-300"/>
+              </form>
             </div>
           </div>
         </div>
       </section>
-
-      <footer className="bg-navy text-white py-12">
-        <div className="container mx-auto text-center">
-          {/* Main Footer Content */}
-          <div className="mb-8">
-            <p className="text-lg mb-4">
-              &copy; 2024 EnergyCorp. All rights reserved.
-            </p>
-            <p className="text-sm mb-4">
-              1234 Energy Drive, Suite 100, Metropolis, CA 90001
-            </p>
-            <p className="text-sm mb-4">
-              Email:{" "}
-              <a href="mailto:info@energycorp.com" className="underline">
-                info@energycorp.com
-              </a>
-            </p>
-            <p className="text-sm mb-4">
-              Phone:{" "}
-              <a href="tel:+1234567890" className="underline">
-                (123) 456-7890
-              </a>
-            </p>
-          </div>
-
-          {/* Social Media Links */}
-          <div className="flex justify-center space-x-4 mb-8">
-            <a href="#" className="text-white hover:text-gray-300">
-              <i className="fab fa-facebook-f"></i>{" "}
-              {/* Add your icon library */}
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <i className="fab fa-twitter"></i> {/* Add your icon library */}
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <i className="fab fa-linkedin-in"></i>{" "}
-              {/* Add your icon library */}
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              <i className="fab fa-instagram"></i> {/* Add your icon library */}
-            </a>
-          </div>
-
-          {/* Sitemap */}
-          <div className="flex flex-wrap justify-center space-x-6">
-            <a href="#" className="text-white hover:text-gray-300">
-              Home
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              About
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              Services
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              Contact
-            </a>
-            <a href="#" className="text-white hover:text-gray-300">
-              Privacy Policy
-            </a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 };
