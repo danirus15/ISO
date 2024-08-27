@@ -8,6 +8,7 @@ import "./App.css"
 import cardImage1 from "./assets/images/banner/1.png";
 import cardImage2 from "./assets/images/banner/2.png";
 import cardImage3 from "./assets/images/banner/3.png";
+import bannerImage from "./assets/images/banner/7.png";
 import buildingImage from "./assets/images/cards/1.png";
 import controlRoom from "./assets/images/cards/3.png";
 import discosMap from "./assets/images/cards/4.png";
@@ -33,7 +34,12 @@ const App = () => {
         <img src={props.image} alt="" />
         <h3 className="p-2 text-blue-950 font-medium text-xl">{props.title}</h3>
         <div className="mb-4 px-2 text-left">{props.shortDesc}</div>
-        <a href="Learn more" className="btn-arrow text-color text-blue-950 font-medium">Learn more</a>
+        <a
+          href="Learn more"
+          className="btn-arrow text-color text-white bg-[#003366] px-5 py-3 rounded-sm font-medium"
+        >
+          Learn more
+        </a>
       </div>
     );
   }
@@ -63,7 +69,7 @@ const App = () => {
   return (
     <>
       <header className="relative text-white overflow-hidden">
-        <img src={cardImage1} />
+        <img src={bannerImage} />
         <div className="text-hero bg-[#003366]">
           <div className="container mx-auto flex justify-between items-center p-10">
             <div className="flex justify-between">
