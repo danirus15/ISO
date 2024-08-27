@@ -5,7 +5,7 @@ import logoSite from "../assets/images/logo/logo-site.png";
 const Header = () => {
   return (
     <>
-      <nav className="bg-white md:p-4 p-2">
+      <nav className="bg-white md:p-4 md:p-2">
         <div className="container mx-auto md:flex md:justify-between items-center">
           <a href="#" className="text-xl font-bold">
             <img 
@@ -35,7 +35,7 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          <a href="#" className="absolute md:relative transition btn-quote hover:bg-orange-500 top-2 right-2">Request a Quote</a>
+          <a href="#" className="absolute md:relative transition btn-quote hover:bg-orange-500 top-2 md:top-0 right-2">Request a Quote</a>
         </div>
         
       </nav>
