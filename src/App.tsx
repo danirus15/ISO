@@ -8,6 +8,9 @@ import "./App.css"
 import cardImage1 from "./assets/images/banner/1.png";
 import cardImage2 from "./assets/images/banner/2.png";
 import cardImage3 from "./assets/images/banner/3.png";
+import buildingImage from "./assets/images/cards/1.png";
+import controlRoom from "./assets/images/cards/3.png";
+import discosMap from "./assets/images/cards/4.png";
 
 
 const heroImages = [cardImage1, cardImage2, cardImage3];
@@ -115,17 +118,17 @@ const App = () => {
           </div>
           <div className="flex justify-between my-10 gap-10 mb-16">
             <CardArticle
-              image="/src/assets/images/cards/card-1.png"
+              image={buildingImage}
               title="Architectural, Structural & Mechanical Drawings"
               shortDesc="We conduct thorough environmental impact assessments and audits (EIA/EA) for energy projects in the oil and gas industry, as well as general projects."
             />
             <CardArticle
-              image="/src/assets/images/cards/card-2.png"
+              image={discosMap}
               title="Architectural, Structural & Mechanical Drawings"
               shortDesc="We conduct thorough environmental impact assessments and audits (EIA/EA) for energy projects in the oil and gas industry, as well as general projects."
             />
             <CardArticle
-              image="/src/assets/images/cards/card-3.png"
+              image={controlRoom}
               title="Architectural, Structural & Mechanical Drawings"
               shortDesc="We conduct thorough environmental impact assessments and audits (EIA/EA) for energy projects in the oil and gas industry, as well as general projects."
             />
