@@ -30,8 +30,8 @@ const App = () => {
 
   function CardArticle(props:any) {
     return (
-      <div className="w-1/3 transition text-center hover:bg-slate-100 pb-3">
-        <img src={props.image} alt="" />
+      <div className="md:basis-1/3 transition text-center hover:bg-slate-100 pb-3">
+        <img src={props.image} alt="w-full" />
         <h3 className="p-2 text-blue-950 font-medium text-xl">{props.title}</h3>
         <div className="mb-4 px-2 text-left">{props.shortDesc}</div>
         <a
@@ -46,7 +46,7 @@ const App = () => {
 
   function CardServices(props:any) {
     return (
-      <div className="w-1/3 transition text-center px-3 py-5" style={{backgroundColor:"rgba(30, 86, 142, 0.47)"}}>
+      <div className="md:basis-1/3 transition text-center px-3 py-5" style={{backgroundColor:"rgba(30, 86, 142, 0.47)"}}>
         <div className="flex justify-center pb-4">
           <img src={props.image} alt="" className="h-full w-full"/>
         </div>
@@ -69,7 +69,30 @@ const App = () => {
   return (
     <>
       <header className="relative text-white overflow-hidden">
-        <img src={bannerImage} />
+        {/* <img src={bannerImage} /> */}
+        <Slider {...settings} className="w-full h-[50vh]">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className="w-full h-full flex items-center justify-center"
+            >
+              <img
+                src={image}
+                alt={`Hero ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </Slider>
+        <div className="bottom-0 left-0 w-full bg-navy text-white py-2 overflow-hidden">
+          <div className="whitespace-nowrap animate-marquee backdrop-blur-sm">
+            <p className="inline-block px-4">
+              Breaking News: New energy solutions unveiled! | Breaking News:
+              Major renewable energy breakthrough! | Breaking News:
+              Industry-leading innovations coming soon!
+            </p>
+          </div>
+        </div>
         <div className="text-hero bg-[#003366]">
           <div className="container mx-auto flex justify-between items-center p-10">
             <div className="flex justify-between">
@@ -122,7 +145,7 @@ const App = () => {
               quotations for general engineering works.
             </div>
           </div>
-          <div className="flex justify-between my-10 gap-10 mb-16">
+          <div className="md:flex md:flex-row my-10 gap-10 mb-16">
             <CardArticle
               image={buildingImage}
               title="Architectural, Structural & Mechanical Drawings"
@@ -151,12 +174,12 @@ const App = () => {
       <section className="bg-[#003366] text-white">
         <div className="container mx-auto items-center p-10">
           <div className=" justify-center">
-            <h2 className="text-4xl  px-64 text-center font-normal ">
+            <h2 className="text-4xl  md:px-64 text-center font-normal ">
               Streamline your operations with our Technical Audits and
               Compliance Services
             </h2>
           </div>
-          <div className="flex justify-between my-10 gap-10 mb-16">
+          <div className="md:flex md:flex-row my-10 gap-10 mb-16">
             <CardServices
               image={cardImage1}
               title="Ensure regulatory compliance with our Licenses and Permits Acquisition"
